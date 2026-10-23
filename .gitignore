@@ -1,0 +1,8 @@
+# Local build scratch space (build-client.mjs uses lib/.build for --check-only)
+lib/.build/
+# Agent research scratch (never shipped)
+.scratch/
+node_modules/
+# Packed release tarballs (created by `npm pack`)
+dist/
+*.tgz

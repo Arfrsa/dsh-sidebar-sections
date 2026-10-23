@@ -1,0 +1,9 @@
+# Keep the vendored JS, patches and generated bundle byte-stable across clones.
+# The build verifies the baseline SHA256 and matches patch anchors by LF text, so
+# a CRLF checkout would break the pipeline.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.tgz binary

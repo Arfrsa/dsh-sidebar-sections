@@ -1,0 +1,94 @@
+{
+  "name": "dsh-workspace-sections-official",
+  "version": "0.2.6",
+  "description": "Official DSH sidebar workspace browser, rebuilt with a three-section layout (Active / Session tasks / Inactive), manual pins, an activity threshold and a one-click switch back to the shipped list.",
+  "type": "module",
+  "icon": "./icon.svg",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "vendor/*.js",
+    "vendor/LICENSE.dsh-client-ui-workspace",
+    "patches/manifest.json",
+    "patches/*.mjs",
+    "scripts/build-client.mjs",
+    "scripts/smoke-load.mjs",
+    "scripts/derive-selftest.mjs",
+    "scripts/install.ps1",
+    "screenshots.json",
+    "assets/screenshots/*.png",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md",
+    "docs/**/*.md"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.2 <0.3.0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remote-access",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-controller",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-shortcuts",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "sidebar",
+    "workspace",
+    "workspaces",
+    "sessions",
+    "sections",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arfrsa/dsh-workspace-sections-official.git"
+  },
+  "homepage": "https://github.com/Arfrsa/dsh-workspace-sections-official#readme",
+  "bugs": {
+    "url": "https://github.com/Arfrsa/dsh-workspace-sections-official/issues"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./scripts/build-client.mjs",
+    "test:derive": "node ./scripts/derive-selftest.mjs",
+    "test:load": "node ./scripts/smoke-load.mjs",
+    "test": "node ./scripts/build-client.mjs --check-only && node ./scripts/smoke-load.mjs && node ./scripts/derive-selftest.mjs",
+    "prepack": "node ./scripts/build-client.mjs"
+  }
+}

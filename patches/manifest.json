@@ -1,0 +1,33 @@
+{
+  "baseline": {
+    "package": "@deepseek-ai/dsh-client-ui-workspace",
+    "version": "0.2.1-rc.2",
+    "file": "vendor/dsh-client-ui-workspace-0.2.1-rc.2.js",
+    "sha256": "4dd7f3c580f2316af8172ee4dc542b10e19b030e81f9242f4696e8139260dc17",
+    "sha256Prefix16": "4DD7F3C580F2316A",
+    "bytes": 232747
+  },
+  "targetDshVersion": "0.2.1-rc.2",
+  "patches": [
+    {
+      "file": "01-bundle-identity.mjs",
+      "description": "Rewrite the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-workspace-sections-official; this bundle replaces the shipped ui-workspace row, so no slot priority override is needed."
+    },
+    {
+      "file": "02-sections-derive.mjs",
+      "description": "Tag each official derived workspace group with a section (active / history / inactive), pinnedSection and latestActivity, recognise the D:\\files\\history-tasks workspace, and return the official derivation unchanged in native mode."
+    },
+    {
+      "file": "03-sections-render.mjs",
+      "description": "Render three fixed section headers (active -> history -> inactive), indent project rows one level in sections mode, flatten history sessions, and persist section-collapse state; native mode renders the official tree unchanged."
+    },
+    {
+      "file": "04-view-options.mjs",
+      "description": "Extend the official ViewOptionsMenu with the sections switch, active-days +/- and reset, and add pin entries to the workspace row menu (sections mode only)."
+    },
+    {
+      "file": "06-native-toggle.mjs",
+      "description": "Add the plugin-owned section state (mode/threshold/pins/collapse), the History workspace bootstrap, the browser injection wiring and a sidebar.footer.action return button; no official registration is removed."
+    }
+  ]
+}

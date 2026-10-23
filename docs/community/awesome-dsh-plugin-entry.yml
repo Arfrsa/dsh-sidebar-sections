@@ -1,0 +1,10 @@
+# Entry for github.com/awesome-dsh-plugin/awesome-dsh-plugin
+# Copy to: data/plugins/<owner>__dsh-workspace-sections-official.yml
+# Replace <owner> with the GitHub account that hosts the repository.
+# Keep the file name and the url in sync: <owner>__<repo>.yml.
+url: https://github.com/<owner>/dsh-workspace-sections-official
+name: <owner>/dsh-workspace-sections-official
+category: ui
+description:
+  en: Split the DSH sidebar workspace list into Active, Session tasks and Inactive sections with manual pins and an activity threshold, keeping the official search, archive filters, row menus and drag and drop, with a one-click switch back to the shipped list.
+  zh: 把 DSH 侧栏工作区列表分为「活跃 / 会话任务 / 不活跃」三段，支持手动钉住与活跃阈值，保留官方搜索、归档筛选、行菜单与拖拽，并可一键切回官方列表。
