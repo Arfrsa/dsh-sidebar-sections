@@ -27,17 +27,19 @@ services with credentials, so the final push / publish / PR runs on your machine
 ## 1. Create and push the repository
 
 ~~~powershell
-# in this package directory (it already contains a local git repo + first commit)
-git remote add origin https://github.com/<owner>/dsh-sidebar-sections.git
+# in this package directory (it already contains a local git repo)
+git remote add origin https://github.com/Arfrsa/dsh-sidebar-sections.git
 git push -u origin main
 ~~~
 
-Then add the `dsh-plugin` topic in the repository settings (or:
-`https://github.com/<owner>/dsh-sidebar-sections/settings`).
+This repository is already pushed to
+<https://github.com/Arfrsa/dsh-sidebar-sections>. The remaining one-time GitHub
+setting is the **`dsh-plugin` topic**:
+`https://github.com/Arfrsa/dsh-sidebar-sections/settings` -> Topics -> add
+`dsh-plugin`.
 
-If the package's `repository` / `homepage` / `bugs` fields still contain
-`Arfrsa`, update `package.json` to your final `<owner>/<repo>` first and amend
-the commit (the npm ↔ repo mapping reads `repository`).
+The `repository` / `homepage` / `bugs` fields in `package.json` point at that
+repository (the npm ↔ repo mapping reads `repository`).
 
 ## 2. (Optional, recommended) Publish to npm
 

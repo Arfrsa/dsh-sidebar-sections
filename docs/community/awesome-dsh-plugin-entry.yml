@@ -1,9 +1,8 @@
 # Entry for github.com/awesome-dsh-plugin/awesome-dsh-plugin
-# Copy to: data/plugins/<owner>__dsh-sidebar-sections.yml
-# Replace <owner> with the GitHub account that hosts the repository.
+# Copy to: data/plugins/Arfrsa__dsh-sidebar-sections.yml
 # Keep the file name and the url in sync: <owner>__<repo>.yml.
-url: https://github.com/<owner>/dsh-sidebar-sections
-name: <owner>/dsh-sidebar-sections
+url: https://github.com/Arfrsa/dsh-sidebar-sections
+name: Arfrsa/dsh-sidebar-sections
 category: ui
 description:
   en: Split the DSH sidebar workspace list into Active, Session tasks and Inactive sections with manual pins and an activity threshold, keeping the official search, archive filters, row menus and drag and drop, with a one-click switch back to the shipped list.
