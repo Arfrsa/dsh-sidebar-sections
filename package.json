@@ -1,7 +1,7 @@
 {
-  "name": "dsh-workspace-sections-official",
-  "version": "0.2.6",
-  "description": "Official DSH sidebar workspace browser, rebuilt with a three-section layout (Active / Session tasks / Inactive), manual pins, an activity threshold and a one-click switch back to the shipped list.",
+  "name": "dsh-sidebar-sections",
+  "version": "0.2.7",
+  "description": "Unofficial community plugin that patch-builds the MIT-licensed official @deepseek-ai/dsh-client-ui-workspace browser bundle into a three-section DSH sidebar workspace list (Active / Session tasks / Inactive) with manual pins, an activity threshold and a one-click switch back to the shipped list. Not affiliated with or endorsed by DeepSeek.",
   "type": "module",
   "icon": "./icon.svg",
   "main": "lib/index.js",
@@ -74,11 +74,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arfrsa/dsh-workspace-sections-official.git"
+    "url": "git+https://github.com/Arfrsa/dsh-sidebar-sections.git"
   },
-  "homepage": "https://github.com/Arfrsa/dsh-workspace-sections-official#readme",
+  "homepage": "https://github.com/Arfrsa/dsh-sidebar-sections#readme",
   "bugs": {
-    "url": "https://github.com/Arfrsa/dsh-workspace-sections-official/issues"
+    "url": "https://github.com/Arfrsa/dsh-sidebar-sections/issues"
   },
   "license": "MIT",
   "publishConfig": {

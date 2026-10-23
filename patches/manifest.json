@@ -11,7 +11,7 @@
   "patches": [
     {
       "file": "01-bundle-identity.mjs",
-      "description": "Rewrite the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-workspace-sections-official; this bundle replaces the shipped ui-workspace row, so no slot priority override is needed."
+      "description": "Rewrite the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-sidebar-sections; this bundle replaces the shipped ui-workspace row, so no slot priority override is needed."
     },
     {
       "file": "02-sections-derive.mjs",

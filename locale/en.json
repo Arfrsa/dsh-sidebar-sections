@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Workspace Sections (official fork)",
-    "description": "Splits the shipped sidebar workspace browser into Active, History tasks and Inactive sections. The official package is never modified: this bundle is a patched build of its browser code and keeps the official search, archive, row menus, drag and drop, and shortcuts. Switch back to the official list in View options, or disable the plugin in Settings to restore the shipped sidebar."
+    "title": "Workspace Sections",
+    "description": "Unofficial community plugin: it patch-builds the MIT-licensed official @deepseek-ai/dsh-client-ui-workspace browser bundle (the shipped package itself is never modified) to split the sidebar workspace list into Active / Session tasks / Inactive sections. Official search, archive filters, row menus and drag and drop are reused as-is; switch back to the shipped list from View options, or disable the plugin in Settings. Not affiliated with or endorsed by DeepSeek."
   }
 }

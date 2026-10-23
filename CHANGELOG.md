@@ -4,6 +4,27 @@ Changes are organised per version and per patch. The patch list itself is
 authoritative in [patches/manifest.json](patches/manifest.json); this file records
 what changed and what is still open.
 
+## 0.2.7 - 2026-10-23 (neutral package identity for the community release)
+
+### Changed
+
+- **Package renamed before its first public release**:
+  `dsh-workspace-sections-official` -> **`dsh-sidebar-sections`**. The old name
+  contained "official", which could be mistaken for a DeepSeek-published plugin.
+  Updated everywhere: bundle loader id (patch 01), loader row id
+  (`sidebar-sections` in `cordis.patch.yml`), plugin stylesheet tag ids (patch
+  06), test expectations, install runbook and docs.
+- **Display name is neutral** now: `工作区分段` / `Workspace Sections` (was
+  `工作区分段（官方内核）` / `Workspace Sections (official fork)`).
+- **Explicit disclaimers added**: the plugin description (package.json + locale
+  zh/en) and the README state that this is an unofficial community plugin that
+  *reuses the MIT-licensed official* `@deepseek-ai/dsh-client-ui-workspace`
+  browser bundle, and is not affiliated with or endorsed by DeepSeek. "Official"
+  in the docs always refers to that upstream shipped code.
+- Suggested GitHub repository is now `Arfrsa/dsh-sidebar-sections`.
+- Rebuilt: output 257910 bytes, sha256
+  `e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`.
+
 ## 0.2.6 - 2026-10-22 (section renamed to 会话任务; installed in `desktop`)
 
 ### Changed

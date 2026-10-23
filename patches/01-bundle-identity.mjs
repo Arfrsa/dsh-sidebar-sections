@@ -3,7 +3,7 @@
  *
  * One asserted edit on the vendored official bundle: the
  * `window.__ModuleLoader__.load({ id })` id becomes this package's name. Our
- * loader row imports `dsh-workspace-sections-official`, so the browser bundle
+ * loader row imports `dsh-sidebar-sections`, so the browser bundle
  * must register its factory under that id instead of the official one.
  *
  * The architecture note: this bundle *replaces* the shipped
@@ -23,10 +23,10 @@
  */
 
 export const name = "bundle-identity";
-export const description = "Rewrites the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-workspace-sections-official.";
+export const description = "Rewrites the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-sidebar-sections.";
 
 const LOADER_ANCHOR = "window.__ModuleLoader__.load({\n\tid: \"@deepseek-ai/dsh-client-ui-workspace\",";
-const LOADER_REPLACEMENT = "window.__ModuleLoader__.load({\n\tid: \"dsh-workspace-sections-official\",";
+const LOADER_REPLACEMENT = "window.__ModuleLoader__.load({\n\tid: \"dsh-sidebar-sections\",";
 
 function countOccurrences(haystack, needle) {
   let count = 0;
@@ -60,7 +60,7 @@ export function apply(source) {
     throw new Error("patch 01: loader anchor matched " + count + " times, expected exactly 1.");
   }
   const next = source.replace(LOADER_ANCHOR, () => LOADER_REPLACEMENT);
-  if (countOccurrences(next, "id: \"dsh-workspace-sections-official\"") !== 1) {
+  if (countOccurrences(next, "id: \"dsh-sidebar-sections\"") !== 1) {
     throw new Error("patch 01: post-condition failed — expected exactly one rewritten loader id");
   }
   if (countOccurrences(next, "id: \"@deepseek-ai/dsh-client-ui-workspace\"") !== 0) {

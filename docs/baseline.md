@@ -17,7 +17,7 @@ never modified on disk; the vendored copy is the input to the patch pipeline.
 | Upstream | <https://github.com/deepseek-ai/deepseek-harness> (`packages/client/ui-workspace`) |
 
 The generated browser artifact is `lib/client.js`
-(257954 bytes, SHA256 `8c54aef27186d741886e8b9194eba598b30e774a932ba8cb07fe7ddfb1d7cdf3`);
+(257910 bytes, SHA256 `e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`);
 `node scripts/build-client.mjs` recomputes and verifies both hashes.
 
 ## Re-extracting the baseline (upgrade)

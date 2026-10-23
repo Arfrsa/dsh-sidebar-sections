@@ -260,10 +260,10 @@ function buildSectionsComponents(cssText) {
 		*/
 		function installSectionsUiCss() {
 			if (typeof document === "undefined") return;
-			const cssId = "dsh-workspace-sections-official/sections-ui.css";
+			const cssId = "dsh-sidebar-sections/sections-ui.css";
 			if (document.querySelector("style[data-plugin-css=" + JSON.stringify(cssId) + "]") !== null) return;
 			const tag = document.createElement("style");
-			tag.dataset.plugin = "dsh-workspace-sections-official";
+			tag.dataset.plugin = "dsh-sidebar-sections";
 			tag.dataset.pluginCss = cssId;
 			tag.textContent = ` +
     JSON.stringify(cssText) +

@@ -1,4 +1,11 @@
-# dsh-workspace-sections-official
+# dsh-sidebar-sections
+
+> **Unofficial community plugin.** This package is not published by, reviewed by
+> or endorsed by DeepSeek. It **reuses** the MIT-licensed official
+> `@deepseek-ai/dsh-client-ui-workspace` **0.2.1-rc.2** browser bundle and
+> patch-builds its own copy of it. Where this documentation says "official", it
+> refers to that upstream DeepSeek code (the shipped sidebar browser / its
+> shipped view), never to this plugin.
 
 Fork of the shipped DSH sidebar workspace browser. The official
 `@deepseek-ai/dsh-client-ui-workspace` **0.2.1-rc.2** client bundle is vendored
@@ -10,7 +17,7 @@ filters, row menus, hover buttons/cards, workspace management, drag & drop,
 watermark rows, status dots and shortcuts kept intact because they are still the
 official code.
 
-> **Status (0.2.6, tested on DSH Desktop 0.2.1-rc.2, Windows).** The sectioned
+> **Status (0.2.7, tested on DSH Desktop 0.2.1-rc.2, Windows).** The sectioned
 > sidebar renders in the running app (`活跃` header + count over the official
 > project rows), the official child-slot registrations stay live (session menu
 > rows, row hover actions, directory flow, hero picker, toast factory), and the
@@ -58,7 +65,7 @@ refresh.
 ## Layout
 
 ~~~
-dsh-workspace-sections-official/
+dsh-sidebar-sections/
 |- package.json              plugin manifest (dsh.bundle.patch + dsh.client)
 |- cordis.patch.yml          disables the shipped ui-workspace row, inserts this bundle's row
 |- icon.svg / locale/*.json  plugin manifest icon + strings
@@ -110,15 +117,15 @@ lands in `vendor/` (baseline refresh) or `patches/*.mjs`.
 
 Installing is a profile operation: the package declares `dsh.bundle.patch`, so
 `dsh plugin add` links it into the profile and appends
-`dsh-workspace-sections-official` to `dsh.profile.bundles`. Use the profile you
+`dsh-sidebar-sections` to `dsh.profile.bundles`. Use the profile you
 actually run (the Desktop app uses `desktop`; `dsh web` commonly uses `web`).
 
 ~~~powershell
 # From npm (after the package is published):
-dsh plugin --profile <profile> add dsh-workspace-sections-official
+dsh plugin --profile <profile> add dsh-sidebar-sections
 
 # From the GitHub repository (no npm publication needed):
-dsh plugin --profile <profile> add github:<owner>/dsh-workspace-sections-official
+dsh plugin --profile <profile> add github:<owner>/dsh-sidebar-sections
 
 # From a local checkout (development):
 dsh plugin --profile <profile> add <path-to-this-repo>
@@ -132,9 +139,9 @@ disable -> enable) picks up a rebuilt `lib/client.js`.
 ### Enable / disable
 
 - **In the app:** Settings -> Plugins -> toggle
-  `dsh-workspace-sections-official`; or
+  `dsh-sidebar-sections`; or
 - **as an agent tool:** `plugin_manager` `{ "action": "set_bundle",
-  "target": "dsh-workspace-sections-official", "enabled": false }` (then `true`
+  "target": "dsh-sidebar-sections", "enabled": false }` (then `true`
   to re-enable); or
 - profile fallback: leave the package out of `dsh.profile.bundles`.
 
@@ -147,7 +154,7 @@ bundle list changes).
 ### Uninstall
 
 ~~~powershell
-dsh plugin --profile <profile> remove dsh-workspace-sections-official
+dsh plugin --profile <profile> remove dsh-sidebar-sections
 ~~~
 
 This removes the dependency and drops the package from `dsh.profile.bundles`;

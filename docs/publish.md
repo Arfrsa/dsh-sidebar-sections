@@ -15,12 +15,12 @@ services with credentials, so the final push / publish / PR runs on your machine
 
 - A public GitHub repository containing this package at its **root**
   (`package.json` with `dsh.bundle` + `cordis.patch.yml` + `lib/` + `vendor/` +
-  `patches/`). Suggested name: `dsh-workspace-sections-official`.
+  `patches/`). Suggested name: `dsh-sidebar-sections`.
 - The repository's GitHub **topic** must be `dsh-plugin`.
 - The repository must be **at least 1 day old** before the list PR is accepted
   (CI checks the creation time; commit count does not matter).
 - Optional: an npm account (the registry name
-  `dsh-workspace-sections-official` was free when this doc was written). A
+  `dsh-sidebar-sections` was free when this doc was written). A
   published package gives storefronts download counts and prebuilt installs; the
   listing works without it.
 
@@ -28,12 +28,12 @@ services with credentials, so the final push / publish / PR runs on your machine
 
 ~~~powershell
 # in this package directory (it already contains a local git repo + first commit)
-git remote add origin https://github.com/<owner>/dsh-workspace-sections-official.git
+git remote add origin https://github.com/<owner>/dsh-sidebar-sections.git
 git push -u origin main
 ~~~
 
 Then add the `dsh-plugin` topic in the repository settings (or:
-`https://github.com/<owner>/dsh-workspace-sections-official/settings`).
+`https://github.com/<owner>/dsh-sidebar-sections/settings`).
 
 If the package's `repository` / `homepage` / `bugs` fields still contain
 `Arfrsa`, update `package.json` to your final `<owner>/<repo>` first and amend
@@ -46,11 +46,11 @@ npm login
 npm publish            # prepack rebuilds lib/client.js from vendor/ and runs node --check
 ~~~
 
-- Unscoped name: `dsh-workspace-sections-official` (public).
+- Unscoped name: `dsh-sidebar-sections` (public).
 - `publishConfig.access` is already `public`; the `files` list ships
   `lib/client.js`, `vendor/`, `patches/`, `scripts/` and the docs, so the
   installed package needs no build step.
-- After publishing, `dsh plugin --profile <profile> add dsh-workspace-sections-official`
+- After publishing, `dsh plugin --profile <profile> add dsh-sidebar-sections`
   is the preferred install command; storefronts also show download counts.
 - The package's `repository` field must point at the listed GitHub repo.
 
@@ -59,12 +59,12 @@ npm publish            # prepack rebuilds lib/client.js from vendor/ and runs no
 One PR = one file. Fork `awesome-dsh-plugin/awesome-dsh-plugin`, then:
 
 ~~~text
-data/plugins/<owner>__dsh-workspace-sections-official.yml
+data/plugins/<owner>__dsh-sidebar-sections.yml
 ~~~
 
 Copy `docs/community/awesome-dsh-plugin-entry.yml` from this package, replace
 `<owner>` (and the URL if you used another repo name), then commit and open a
-PR titled `Add <owner>/dsh-workspace-sections-official`.
+PR titled `Add <owner>/dsh-sidebar-sections`.
 
 Do **not** edit the generated `README.md` / `README.zh.md` in that repository:
 the maintainers regenerate them from `data/plugins/*.yml` after merge.

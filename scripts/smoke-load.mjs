@@ -25,7 +25,7 @@ import vm from "node:vm";
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const PACKAGE_ROOT = resolve(SCRIPT_DIR, "..");
 const BUNDLE_FILE = join(PACKAGE_ROOT, "lib", "client.js");
-const EXPECTED_ID = "dsh-workspace-sections-official";
+const EXPECTED_ID = "dsh-sidebar-sections";
 
 function fail(message) {
   throw new Error("smoke-load: " + message);

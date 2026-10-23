@@ -11,8 +11,8 @@ Environment: DSH Desktop **0.2.1-rc.2** (Windows), profile `desktop`, GUI served
 
 Plugin state at the end of this session: **installed + enabled** in the `desktop`
 profile (local `link:` bundle, `dsh.profile.bundles` ends with
-`dsh-workspace-sections-official`); the sectioned sidebar is visible in the
-running app. Package version **0.2.6** includes the user-feedback passes:
+`dsh-sidebar-sections`); the sectioned sidebar is visible in the
+running app. Package version **0.2.7** includes the user-feedback passes:
 official drag-indicator style (patch 05 retired), project/session rows inset
 21px so the folder icon axis aligns with the section label's first glyph (row
 background pill moves with them), per-section icons (ECG / task checklist / zzz)
@@ -43,9 +43,9 @@ rendering mode (`mode: "native"`) of the same patched component tree.
 
 | Check | Command | Result |
 |---|---|---|
-| Baseline hash + ordered patch application + `node --check` | `node scripts/build-client.mjs` | all 5 current patches applied (05 retired); 232747 -> 257954 bytes; sha256 `8c54aef27186d741886e8b9194eba598b30e774a932ba8cb07fe7ddfb1d7cdf3`; `node --check OK` |
+| Baseline hash + ordered patch application + `node --check` | `node scripts/build-client.mjs` | all 5 current patches applied (05 retired); 232747 -> 257910 bytes; sha256 `e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`; `node --check OK` |
 | `--check-only` leaves the artifact untouched | `node scripts/build-client.mjs --check-only` | OK |
-| Frozen platform module table / bundle shape | `node scripts/smoke-load.mjs` | OK: id `dsh-workspace-sections-official`, exports `apply, inject`, only the five seed modules required, 4 official CSS tags |
+| Frozen platform module table / bundle shape | `node scripts/smoke-load.mjs` | OK: id `dsh-sidebar-sections`, exports `apply, inject`, only the five seed modules required, 4 official CSS tags |
 | Section-derivation rules (SPEC 2.1) | `node scripts/derive-selftest.mjs` | OK: 22 assertions (threshold, running/pending/current, pins beating threshold and running, history identity + flat expansion, ungrouped, native passthrough, archived-only History retention, archived sessions not counting as activity) |
 
 ## Live verification (running app)
@@ -130,8 +130,8 @@ capture works), so the following interactions were code-reviewed but not clicked
 ## Rollback
 
 - In-app: view options -> "切回官方列表" (rendering mode), or Settings -> Plugins
-  -> disable `dsh-workspace-sections-official` (shipped browser returns).
-- Remove: `dsh plugin --profile desktop remove dsh-workspace-sections-official`
+  -> disable `dsh-sidebar-sections` (shipped browser returns).
+- Remove: `dsh plugin --profile desktop remove dsh-sidebar-sections`
   (Desktop closed) or `plugin_manager remove_bundle`.
 - Plugin-owned state: delete localStorage key `dsh.workspace.sections.v2` to
   reset threshold/pins/collapse; no other plugin-owned files exist.

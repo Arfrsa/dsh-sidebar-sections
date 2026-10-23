@@ -124,14 +124,14 @@ runtime failure. Do not weaken an assertion to make a stale anchor pass.
 ## 5. Patch replay procedure
 
 1. Update `vendor/` + `patches/manifest.json` (section 3).
-2. Run the build: `node dsh-workspace-sections-official/scripts/build-client.mjs`
+2. Run the build: `node dsh-sidebar-sections/scripts/build-client.mjs`
    - hash mismatch -> re-extract; do not edit the manifest hash to match a
      hand-edited file;
    - anchor failure -> fix the named patch first, one patch at a time;
    - missing patch files -> wait for the owning patch or use
      `BUILD_ALLOW_MISSING=1` for a smoke test only (never install that artifact).
 3. Confirm the summary: per-patch byte deltas, `node --check OK`, output SHA256.
-4. `node --check dsh-workspace-sections-official/lib/client.js` (redundant but
+4. `node --check dsh-sidebar-sections/lib/client.js` (redundant but
    explicit for reviewers).
 5. If the patch set is unchanged and only the baseline moved, refresh the expected
    deltas in `docs/patches.md` and add a CHANGELOG entry.
@@ -147,7 +147,7 @@ runtime failure. Do not weaken an assertion to make a stale anchor pass.
    scripts pass for an unchanged build).
 2. **Install**: `plugin_manager` `install_bundle` with the absolute package path
    (live profile) or the CLI form from section 8. `dsh.profile.bundles` must
-   contain `dsh-workspace-sections-official`; the shipped `ui-workspace` row is
+   contain `dsh-sidebar-sections`; the shipped `ui-workspace` row is
    disabled by the bundle patch while this bundle is selected.
 3. **Slot inspection**: `cordis_inspect_query` -> client
    `Slots.listSubTree(root="sidebar.workspaces")`:
@@ -167,7 +167,7 @@ runtime failure. Do not weaken an assertion to make a stale anchor pass.
 6. **Fallbacks**: view options -> official list; the footer return button while
    native; Settings -> Plugins -> disable (shipped sidebar returns);
    uninstall with
-   `dsh plugin --profile desktop remove dsh-workspace-sections-official`.
+   `dsh plugin --profile desktop remove dsh-sidebar-sections`.
    Uninstalling never affects user data.
 
 ## 7. Data boundary and rollback
@@ -190,9 +190,9 @@ runtime failure. Do not weaken an assertion to make a stale anchor pass.
 `%USERPROFILE%\.dsh\profiles\desktop\package.json` currently:
 
 - `dependencies` contains
-  `"dsh-workspace-sections-official": "link:<path-to-this-repo>"`
+  `"dsh-sidebar-sections": "link:<path-to-this-repo>"`
   (installed live on 2026-10-22 through `plugin_manager install_bundle`);
-- `dsh.profile.bundles` ends with `dsh-workspace-sections-official`;
+- `dsh.profile.bundles` ends with `dsh-sidebar-sections`;
 - `dependencies` still contains the old
   `"dsh-workspace-sections": "link:...default-workspace/dsh-workspace-sections"`,
   but that package is **not** in `dsh.profile.bundles` (dormant).
@@ -205,8 +205,8 @@ selected). Remove it from the profile when convenient.
 
 - Pipeline: full build passes (five current patches; patch 05 retired),
   baseline sha256 checked, `node --check OK`, output SHA256
-  `8c54aef27186d741886e8b9194eba598b30e774a932ba8cb07fe7ddfb1d7cdf3`
-  (257954 bytes).
+  `e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`
+  (257910 bytes).
 - Sections-mode layout: project rows and their hover/selected row backgrounds are
   inset by the same 21px step under the section headers; every section header
   shows its icon (ECG / task checklist / zzz, blue while expanded, tertiary while

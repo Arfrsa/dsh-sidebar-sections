@@ -54,16 +54,16 @@ available patch files; such an artifact must never be installed.
 
 | # | file | purpose | byte delta |
 |---|---|---|---|
-| 01 | `01-bundle-identity.mjs` | rewrite the `__ModuleLoader__` id to the plugin package name | -5 |
-| 02 | `02-sections-derive.mjs` | section / pinnedSection / latestActivity derivation, fixed-section workspace identity + legacy-title list, native-mode passthrough | +4487 |
+| 01 | `01-bundle-identity.mjs` | rewrite the `__ModuleLoader__` id to the plugin package name | -16 |
+| 02 | `02-sections-derive.mjs` | section / pinnedSection / latestActivity derivation, fixed-section workspace identity + legacy-title list, native-mode passthrough | +4476 |
 | 03 | `03-sections-render.mjs` | three section headers with state-coloured segment icons (ECG / checklist / zzz), project-row inset variable, flat History body, section collapse, native-mode passthrough, pin action wiring | +9777 |
 | 04 | `04-view-options.mjs` | view-options sections block, active-days threshold, pin rows in the workspace row menu, browser/SessionTree prop wiring | +2991 |
-| 06 | `06-native-toggle.mjs` | plugin-owned state + actions, History bootstrap, `useSections`/`sectionsActions` injection, footer return button + row-inset CSS | +7957 |
+| 06 | `06-native-toggle.mjs` | plugin-owned state + actions, History bootstrap, `useSections`/`sectionsActions` injection, footer return button + row-inset CSS | +7935 |
 
-Total: 232747 -> 257954 bytes. Baseline SHA256
+Total: 232747 -> 257910 bytes. Baseline SHA256
 `4dd7f3c580f2316af8172ee4dc542b10e19b030e81f9242f4696e8139260dc17` (prefix
 `4DD7F3C580F2316A`), generated SHA256
-`8c54aef27186d741886e8b9194eba598b30e774a932ba8cb07fe7ddfb1d7cdf3`.
+`e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`.
 
 Patch 05 (`05-drag-indicator.mjs`) is **retired** as of 0.2.1: the drag
 indicator uses the official style again, so the file and its manifest entry were
@@ -73,7 +73,7 @@ removed. (Numbers stay stable so old anchor notes remain readable.)
 
 Baseline anchor: lines 1-2, `window.__ModuleLoader__.load({ id:
 "@deepseek-ai/dsh-client-ui-workspace" })`. The id becomes
-`dsh-workspace-sections-official` because our loader row imports our package
+`dsh-sidebar-sections` because our loader row imports our package
 name. No slot priority override is added: the shipped row is disabled instead.
 
 ## Patch 02 - section derivation
@@ -218,10 +218,10 @@ make a stale anchor pass.
 ## Verification log (2026-10-22, this workspace)
 
 - Full build from the pristine vendor baseline: the five current patches applied
-  (byte deltas above), output 257954 bytes, SHA256
-  `8c54aef27186d741886e8b9194eba598b30e774a932ba8cb07fe7ddfb1d7cdf3`,
+  (byte deltas above), output 257910 bytes, SHA256
+  `e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`,
   `node --check OK`; `--check-only` leaves `lib/client.js` untouched.
-- `node scripts/smoke-load.mjs`: bundle id `dsh-workspace-sections-official`,
+- `node scripts/smoke-load.mjs`: bundle id `dsh-sidebar-sections`,
   exports `apply, inject`, inject list `slots, sessions, workspaces, locale,
   remote, remote.directoryPicker, layout, shortcuts, remoteAccess`, requires only
   the five frozen platform seed modules, 4 official CSS tags injected at module
@@ -232,7 +232,7 @@ make a stale anchor pass.
   archived-only History retention, archived sessions not counting as activity).
 - Live install into the `desktop` profile (`plugin_manager install_bundle`):
   `application: applied`; `dsh.profile.bundles` now ends with
-  `dsh-workspace-sections-official`.
+  `dsh-sidebar-sections`.
 - Live Client slot inspection: `sidebar.workspaces` has one occupant (this
   bundle; the shipped row is disabled) and still declares all official child
   slots; `session.menu.item` occupants pin 100 / rename 200 / fork 300 /

@@ -40,7 +40,7 @@ function assert(label, condition, detail) {
 }
 
 const source = readFileSync(BUNDLE_FILE, "utf8");
-const START = "//#region dsh-workspace-sections-official/sections-derive";
+const START = "//#region dsh-sidebar-sections/sections-derive";
 const END_MARKER = "function sectionsLatestActivity(group, statuses) {";
 const startIndex = source.indexOf(START);
 if (startIndex < 0) throw new Error("derive-selftest: patched derivation region missing from lib/client.js - rebuild first");

@@ -28,7 +28,7 @@ function replaceOnce(source, anchor, next, label) {
   return source.slice(0, first) + next + source.slice(first + anchor.length);
 }
 
-const HELPERS = String.raw`//#region dsh-workspace-sections-official/sections-derive
+const HELPERS = String.raw`//#region dsh-sidebar-sections/sections-derive
 		/** Canonical path of the fixed middle-segment Workspace ("session tasks"). */
 		const SECTIONS_HISTORY_PATH = "D:\\files\\history-tasks";
 		/** Display title forced onto the fixed middle-segment Workspace. */

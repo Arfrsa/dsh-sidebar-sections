@@ -241,7 +241,7 @@ async function main() {
     console.log(HELP);
     return;
   }
-  console.log("build-client: dsh-workspace-sections-official");
+  console.log("build-client: dsh-sidebar-sections");
   console.log("  package root  " + PACKAGE_ROOT);
   console.log("  manifest      patches/manifest.json");
   console.log("  mode          " + (CHECK_ONLY ? "check-only (lib/client.js is not written)" : "full build"));

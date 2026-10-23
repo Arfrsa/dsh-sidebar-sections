@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Install / uninstall helper and printed runbook for dsh-workspace-sections-official.
+    Install / uninstall helper and printed runbook for dsh-sidebar-sections.
 
 .DESCRIPTION
     DEFAULT IS DRY RUN: every command is printed and nothing is changed.
@@ -43,7 +43,7 @@ $ErrorActionPreference = "Stop"
 
 $DshCli = if ($env:DSH_CLI) { $env:DSH_CLI } else { "dsh" }
 $Node = if ($env:DSH_NODE) { $env:DSH_NODE } else { "node" }
-$PackageName = "dsh-workspace-sections-official"
+$PackageName = "dsh-sidebar-sections"
 if ($PackagePath -eq "") {
     $PackagePath = Split-Path -Parent $PSScriptRoot
 }

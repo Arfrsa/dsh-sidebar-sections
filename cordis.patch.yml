@@ -19,5 +19,5 @@
 - id: ui-workspace
   disabled: true
 - insert:
-    - id: workspace-sections-official
-      name: dsh-workspace-sections-official
+    - id: sidebar-sections
+      name: dsh-sidebar-sections
