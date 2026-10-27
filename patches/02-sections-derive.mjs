@@ -8,7 +8,7 @@
 // mode (`sections.mode === "native"`) the derivation output is byte-for-byte
 // the official one.
 //
-// Baseline anchors (research/workspace-sections-campaign/official-baseline-0.2.1-rc.2/client.js):
+// Baseline anchors (research/workspace-sections-campaign/official-baseline-0.2.1-rc.3/client.js):
 //   L1027  function groupByWorkspace(...)   -> extra `sectionsMode` parameter
 //   L1040  archived-only empty-group drop   -> never drop the fixed History workspace in sections mode
 //   L1091  function deriveGroups(...)       -> add section / pinnedSection / latestActivity

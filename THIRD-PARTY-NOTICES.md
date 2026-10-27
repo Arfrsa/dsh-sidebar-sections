@@ -5,13 +5,13 @@ The official package is **not modified on disk**: the upstream artifact is
 vendored byte-for-byte and the build pipeline generates this package's browser
 half from it (`patches/*.mjs`).
 
-## `@deepseek-ai/dsh-client-ui-workspace` 0.2.1-rc.2
+## `@deepseek-ai/dsh-client-ui-workspace` 0.2.1-rc.3
 
 - Copyright (c) 2026 DeepSeek
 - License: MIT
 - Upstream: <https://github.com/deepseek-ai/deepseek-harness> (`packages/client/ui-workspace`)
-- Vendored file: `vendor/dsh-client-ui-workspace-0.2.1-rc.2.js`
-  (232747 bytes, SHA256 `4dd7f3c580f2316af8172ee4dc542b10e19b030e81f9242f4696e8139260dc17`)
+- Vendored file: `vendor/dsh-client-ui-workspace-0.2.1-rc.3.js`
+  (232860 bytes, SHA256 `bafd2d6eea2f82674cc0606bec13fc891e44b42fb2ac973f01cb32c735d4062f`)
 - License text: [`vendor/LICENSE.dsh-client-ui-workspace`](vendor/LICENSE.dsh-client-ui-workspace)
 
 The patched browser artifact (`lib/client.js`) is generated from that vendored

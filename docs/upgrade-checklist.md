@@ -9,12 +9,12 @@ plugin.
 
 | Item | Value |
 |---|---|
-| Target DSH Desktop | `0.2.1-rc.2` (Windows), supported range `>=0.2.1-rc.2 <0.3.0` |
+| Target DSH Desktop | `0.2.1-rc.3` (Windows), supported range `>=0.2.1-rc.3 <0.3.0` |
 | Installation | `<DSH install dir>\` |
 | Official package in archive | `dsh/node_modules/@deepseek-ai/dsh-client-ui-workspace/` |
-| Baseline snapshot | `vendor/dsh-client-ui-workspace-0.2.1-rc.2.js` (this package) and `vendor/` |
-| Baseline bytes / SHA256 prefix | `232747` / `4DD7F3C580F2316A` |
-| Full baseline SHA256 | `4dd7f3c580f2316af8172ee4dc542b10e19b030e81f9242f4696e8139260dc17` |
+| Baseline snapshot | `vendor/dsh-client-ui-workspace-0.2.1-rc.3.js` (this package) and `vendor/` |
+| Baseline bytes / SHA256 prefix | `232860` / `BAFD2D6EEA2F8267` |
+| Full baseline SHA256 | `bafd2d6eea2f82674cc0606bec13fc891e44b42fb2ac973f01cb32c735d4062f` |
 | Profile | `%USERPROFILE%\.dsh\profiles\desktop` |
 | DSH CLI | `dsh` |
 | Node | `C:\Program Files\nodejs\node.exe` (24.x) |
@@ -25,13 +25,14 @@ plugin.
 **Result: no `dsh.client.external` declaration is needed and no shims are
 needed.** The official bundle only requires platform seed modules.
 
-Evidence, 0.2.1-rc.2:
+Evidence, 0.2.1-rc.3:
 
 - The vendored bundle requires exactly five modules (vendor lines 7-11):
   `@deepseek-ai/dsh-client-store`, `@deepseek-ai/dsh-client-ui-primitives`,
   `@deepseek-ai/cordis`, `react/jsx-runtime`, `react`.
-- The web shell freezes exactly this platform module table (function `SZ()`,
-  byte offset **916075** in `<extracted app.asar>/dsh/node_modules/@deepseek-ai/dsh-web-frontend/dist/assets/index-*.js`):
+- The web shell freezes exactly this platform module table (rc.3: function `OZ()`,
+  module-table literal at byte offset **917912**, `@deepseek-ai/dsh-client-ui-dockkit`
+  entry, in `<extracted app.asar>/dsh/node_modules/@deepseek-ai/dsh-web-frontend/dist/assets/index-*.js`):
   `react`, `react/jsx-runtime`, `react-dom`, `react-dom/client`,
   `@deepseek-ai/cordis`, `zod`, `@tanstack/react-virtual`,
   `@deepseek-ai/dsh-client-store`, `@deepseek-ai/dsh-client-ui-slots`,
@@ -49,7 +50,7 @@ Re-verify after an upgrade (from the repository root; re-extract the
 `research/_asar` working copies from `resources/app.asar` if they are missing):
 
 ```powershell
-node -e "const s=require('fs').readFileSync('<extracted app.asar>/dsh/node_modules/@deepseek-ai/dsh-web-frontend/dist/assets/index-*.js','utf8');const i=s.indexOf('@deepseek-ai/dsh-client-ui-dockkit');const start=s.lastIndexOf('function SZ(){',i);console.log(s.slice(start,i+40))"
+node -e "const s=require('fs').readFileSync('<extracted app.asar>/dsh/node_modules/@deepseek-ai/dsh-web-frontend/dist/assets/index-*.js','utf8');const i=s.indexOf('@deepseek-ai/dsh-client-ui-dockkit');const start=s.lastIndexOf('return{react:',i);console.log('offset',i);console.log(s.slice(start,i+40))"
 Select-String -Path '<extracted app.asar>/dsh/node_modules/@deepseek-ai/dsh-client-modules/lib/client.js' -Pattern 'this.seed.has\(spec\)','missed the module table','dsh.client.external'
 ```
 
@@ -205,8 +206,8 @@ selected). Remove it from the profile when convenient.
 
 - Pipeline: full build passes (five current patches; patch 05 retired),
   baseline sha256 checked, `node --check OK`, output SHA256
-  `e6eafffa9c24277955d44811dd58510d81b9600532feb0643cea960b447e8133`
-  (257910 bytes).
+  `8cc6ce00ce4ac0e08957a9e38b01d30039f38fd9a503bd802f1a9aac480c29c0`
+  (257958 bytes).
 - Sections-mode layout: project rows and their hover/selected row backgrounds are
   inset by the same 21px step under the section headers; every section header
   shows its icon (ECG / task checklist / zzz, blue while expanded, tertiary while

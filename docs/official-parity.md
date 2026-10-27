@@ -75,7 +75,7 @@ this bundle removes the layer and the shipped row returns unchanged.
 
 ## SPEC section 5.2 item 1 - proof: the fork can require the official modules
 
-Resolved for 0.2.1-rc.2; no shims and no `dsh.client.external` declaration are
+Resolved for 0.2.1-rc.3; no shims and no `dsh.client.external` declaration are
 needed.
 
 1. The vendored bundle requires exactly five modules (vendor file lines 7-11):

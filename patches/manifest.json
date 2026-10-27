@@ -1,17 +1,17 @@
 {
   "baseline": {
     "package": "@deepseek-ai/dsh-client-ui-workspace",
-    "version": "0.2.1-rc.2",
-    "file": "vendor/dsh-client-ui-workspace-0.2.1-rc.2.js",
-    "sha256": "4dd7f3c580f2316af8172ee4dc542b10e19b030e81f9242f4696e8139260dc17",
-    "sha256Prefix16": "4DD7F3C580F2316A",
-    "bytes": 232747
+    "version": "0.2.1-rc.3",
+    "file": "vendor/dsh-client-ui-workspace-0.2.1-rc.3.js",
+    "sha256": "bafd2d6eea2f82674cc0606bec13fc891e44b42fb2ac973f01cb32c735d4062f",
+    "sha256Prefix16": "BAFD2D6EEA2F8267",
+    "bytes": 232860
   },
-  "targetDshVersion": "0.2.1-rc.2",
+  "targetDshVersion": "0.2.1-rc.3",
   "patches": [
     {
       "file": "01-bundle-identity.mjs",
-      "description": "Rewrite the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-sidebar-sections; this bundle replaces the shipped ui-workspace row, so no slot priority override is needed."
+      "description": "Rewrite the __ModuleLoader__ bundle id from @deepseek-ai/dsh-client-ui-workspace to dsh-sidebar-sections, and namespace the four CSS-module style-tag ids so a stale copy can never suppress the shipped bundle's own styles after a host update; this bundle replaces the shipped ui-workspace row, so no slot priority override is needed."
     },
     {
       "file": "02-sections-derive.mjs",

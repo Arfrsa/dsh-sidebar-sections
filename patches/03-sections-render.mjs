@@ -7,7 +7,7 @@
 // menu, watermark, drag class and locale string in place. In native mode
 // (`sections.mode === "native"`) the render path is the official one.
 //
-// Baseline anchors (research/workspace-sections-campaign/official-baseline-0.2.1-rc.2/client.js):
+// Baseline anchors (research/workspace-sections-campaign/official-baseline-0.2.1-rc.3/client.js):
 //   L3023  scrolling session tree comment -> insert SectionHeaderRow component
 //   L3024  function SessionTree({ ... })  -> accept sections state + section actions
 //

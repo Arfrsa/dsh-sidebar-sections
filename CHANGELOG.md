@@ -4,6 +4,33 @@ Changes are organised per version and per patch. The patch list itself is
 authoritative in [patches/manifest.json](patches/manifest.json); this file records
 what changed and what is still open.
 
+## 0.2.8 - 2026-10-27 (re-baseline on DSH 0.2.1-rc.3; fixes the disabled-plugin regression)
+
+### Fixed
+
+- **Disabling the plugin after the DSH 0.2.1-rc.3 update left the official sidebar
+  unstyled** (rows wrapping, row-action buttons always visible, times misplaced,
+  hover styles missing). Root cause: rc.3 changed the official CSS-module hashes
+  (`hIlkoa_*` -> `wnFoaW_*` / `GAkraW_*`), while the shipped bundle dedupes its
+  `<style>` tags by a stable `data-plugin-css` id. After a live disable, the old
+  plugin's style tags stayed in the document, so the freshly loaded official
+  bundle saw its ids taken and skipped injecting the new CSS — the DOM used the
+  new class names with the old stylesheet.
+- **Patch 01 now namespaces the four CSS-module style-tag ids**
+  (`"dsh-sidebar-sections/<Module>.module.css"`); a stale copy can no longer
+  suppress a different host version's stylesheet.
+- **Re-vendored the official bundle from DSH Desktop 0.2.1-rc.3**: baseline
+  `@deepseek-ai/dsh-client-ui-workspace@0.2.1-rc.3`, 232860 bytes, sha256
+  `bafd2d6eea2f82674cc0606bec13fc891e44b42fb2ac973f01cb32c735d4062f`; the old
+  rc.2 vendor file is removed. `dsh.engines.dsh` is now `>=0.2.1-rc.3 <0.3.0`.
+- All anchors re-checked against rc.3; the rc.3 internal changes (blank-session
+  preset matching, draft initialisation) do not touch the patched regions.
+  Rebuilt: output 257958 bytes, sha256
+  `8cc6ce00ce4ac0e08957a9e38b01d30039f38fd9a503bd802f1a9aac480c29c0`.
+- Verified live on DSH Desktop 0.2.1-rc.3: sectioned view renders; disabling the
+  bundle live restores a correctly styled official sidebar; re-enabling restores
+  the sections. (See docs/acceptance-2026-10-27.md.)
+
 ## 0.2.7 - 2026-10-23 (neutral package identity for the community release)
 
 ### Changed
